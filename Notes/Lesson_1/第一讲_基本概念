@@ -47,4 +47,4 @@ clock()函数原型被包含在 time.h 头文件中，它的返回值类型为 c
 
 复杂度的渐进表示法
 
-算法 -- 课件 http://www.icourse163.org/learn/ZJU-93001#/learn/content?type=detail&id=1003011827&cid=1003523998
+将复杂度为 O(n^2) 的算法优化为 O(nlgn) 的方法：分治
