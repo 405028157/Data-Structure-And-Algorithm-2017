@@ -5,6 +5,7 @@ int main()
 	int array[10000], start_sub[10000];
 	int end_sub, start, ThisSum, MaxSum, n, i, j;
 
+	start = 0;
 	ThisSum = 0;
 	MaxSum = 0;
 	j = 0;
