@@ -108,13 +108,28 @@ Stack CreateStack()
  回溯算法
 。。。
 
+队列：
 
+顺序存储实现：
+Front指向队列的第一个元素的再前面一个位置，Rear指向队列的最后一个元素
 
+顺环队列：
+1.当Front = Rear时，队列是空还是满？
+  解决方案：
+  （1）使用额外标记： Size或者tag域
+  （2）仅使用n-1个数组空间
 
+链式存储实现：
+链表的头作Front，链表的尾作Rear
 
+删除：
+当PtrQ->front == PtrQ->Rear（这里进行了指针是否相等的比较） 时，Ptrl->front = PtrQ->Rear = NULL;
 
-
-
+在一个链表表示的队列中， f和r分别指向队列的头和尾。下列哪个操作能正确地将s结点插入到队列中：  
+A.f->next=s; f=s;
+B.r->next=s; r=s;
+C.s->next=r; r=s;
+D.s->next=f; f=s;
 
 
 
