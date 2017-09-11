@@ -17,7 +17,7 @@ int Length ( List PtrL )
   }
   return j;
 }
-Ptrl是不是链表的第一个？（感觉不是）
+Ptrl是不是链表的第一个结点？（感觉不是）
 
 按序号查找: FindKth
 List FindKth( int K, List PtrL )
@@ -31,9 +31,11 @@ List FindKth( int K, List PtrL )
   /* 找到第K个，返回指针 */
   else return NULL;
   /* 否则返回空 */
+  
+  //思考为什么不能直接简化为 return p; 像下面的按值查找一样
 }
 
-按值查找: Find
+按值查找: 
 List Find( ElementType X, List PtrL )
 {
   List p = PtrL;
@@ -41,3 +43,43 @@ List Find( ElementType X, List PtrL )
     p = p->Next;
   return p; //如果发现 p != NULL， 则说明找到了
 }
+
+插入操作：
+1.插入在第一个位置需要单独处理，插入到最后不需要（程序可以正常解决）
+2.异常处理
+
+删除：
+1.记得释放被删除的结点（通过malloc分配的空间可以用free释放掉）
+2.先把要删除的结点赋给一个指针变量，不然完成“删除”操作后，没有办法free掉旧的结点
+3.删除表的第一个结点单独处理，删除最后一个结点不需要单独处理
+4.异常处理
+
+广义表
+多重链表，十字链表——一种典型的多重链表
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
