@@ -1,0 +1,43 @@
+线性表的插入操作（数组表示）：
+1.表要没有满 2.插入的位置要合法 3.记得更新Last，让它仍指向最后一个元素。
+4.在第i个位置上插入一个值为X的元素，数组的起始下标为0，所以第i个位置的下标为i - 1。
+
+线性表的删除操作（数组表示）：
+1.表不能为空 2.删除的位置要合法 3.记得更新Last，让他仍指向最后一个元素。 
+
+顺序表可以用数组实现，也可以用链表实现
+
+求表长：
+int Length ( List PtrL )
+{ List p = PtrL; /* p指向表的第一个结点*/
+  int j = 0;
+  while ( p ) {
+    p = p->Next;
+    j++; /* 当前p指向的是第 j 个结点*/
+  }
+  return j;
+}
+Ptrl是不是链表的第一个？（感觉不是）
+
+按序号查找: FindKth
+List FindKth( int K, List PtrL )
+{ List p = PtrL;
+  int i = 1;
+  while (p !=NULL && i < K ){
+    p = p->Next;
+    i++;
+  }
+  if ( i == K ) return p;
+  /* 找到第K个，返回指针 */
+  else return NULL;
+  /* 否则返回空 */
+}
+
+按值查找: Find
+List Find( ElementType X, List PtrL )
+{
+  List p = PtrL;
+  while ( p!=NULL && p->Data != X )
+    p = p->Next;
+  return p; //如果发现 p != NULL， 则说明找到了
+}
