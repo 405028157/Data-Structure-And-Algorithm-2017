@@ -1,0 +1,31 @@
+二分法查找：
+并且是连续存放（数组），那么可以进行二分查找。
+
+二分法的定义（递归的伪码）
+Position Binary_Search( ElementType List[], ElementType X, Position Left, Position Right )
+{
+    if (left <= Right) { /* 如果搜索范围中还有数据 */
+        /* 先找到序列的中点 */
+        Position M = (Left + Right) / 2;
+ 
+        /* 将List[M]与X进行比较*/
+        if (List[M] == X)  return M; /* 若相等则返回中点下标 */
+        else /* 否则 */
+            /* 若List[M]>X，则在左边的子系列中查找 */
+            if (List[M] > X) Binary_Search(List, X, Left, M-1);                      
+            /* 若List[M]<X，则在右边的子系列中查找 */                                 
+            else             Binary_Search(List, X, M+1, Right);                     
+    }
+    else return -1; /* 否则返回-1表示没有找到 */
+}
+
+
+//在二分查找的程序实现中，如果left和right的更新不是取mid+1和mid-1而是都取mid，程序也是正确的（X）
+left取mid，当要查找的值存在在时，没有问题，但是如果查找的值不存在，就没法通过if(left <= Right)终止递归；
+Right取mid，当要查找的值紧挨Right左边时，mid不可能指到那个位置。
+
+对任何非空二叉树 T，若n0表示叶结点的个数、n2是度为2的非叶结点个数，那么两者满足关系n0 = n2 +1。
+推导:n0 + n1 + n2 - 1 = 0 * n0 + n1 + 2 * n2
+
+void LevelOrderTraversal( BinTree BT )：层次遍历，从上到下、从左到右     //顺序存储结构实现的二叉树的遍历
+
