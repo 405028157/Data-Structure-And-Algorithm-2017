@@ -1,3 +1,10 @@
+typedef struct TreeNode *Bintree;
+struct TreeNode {
+ElementType X;
+Bintree Left;
+Bintree Right;
+};
+
 BinTree Insert( BinTree BST, ElementType X )
 {
     if( !BST ){ /* 若原树为空，生成并返回一个结点的二叉搜索树 */
@@ -39,7 +46,7 @@ BinTree Delete( BinTree BST, ElementType X )
                 Tmp = BST; 
                 if( !BST->Left )       /* 只有右孩子或无子结点 */
                     BST = BST->Right; 
-                else                   /* 只有左孩子 */
+                else                   /* 只有左孩子，或者左右孩子都没有了，BST = BST->left = NULL */
                     BST = BST->Left;
                 free( Tmp );
             }
