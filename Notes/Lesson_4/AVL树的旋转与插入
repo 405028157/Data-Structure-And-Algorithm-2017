@@ -50,7 +50,7 @@ AVLTree Insert( AVLTree T, ElementType X )
  
     else if ( X < T->Data ) {
         /* 插入T的左子树 */
-        T->Left = Insert( T->Left, X);
+        T->Left = Insert( T->Left, X);   //考虑一下这个Insert函数的实现（创建的新结点的高度怎么确定）
         /* 如果需要左旋 */
         if ( GetHeight(T->Left)-GetHeight(T->Right) == 2 )
             if ( X < T->Left->Data ) 
