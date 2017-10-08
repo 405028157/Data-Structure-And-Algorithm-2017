@@ -61,9 +61,9 @@ ElementType DeleteMax( MaxHeap H )
     MaxItem = H->Data[1]; /* 取出根结点存放的最大值 */
     /* 用最大堆中最后一个元素从根结点开始向上过滤下层结点 */
     X = H->Data[H->Size--]; /* 注意当前堆的规模要减小 */
-    for( Parent=1; Parent*2<=H->Size; Parent=Child ) {
+    for( Parent=1; Parent*2<=H->Size; Parent=Child ) {      //Parent * 2 <= H->Size 判断是否有左儿子，如果连左儿子都没有，更不可能有右儿子
         Child = Parent * 2;
-        if( (Child!=H->Size) && (H->Data[Child]<H->Data[Child+1]) )
+        if( (Child!=H->Size) && (H->Data[Child]<H->Data[Child+1]) )   // if(Child != H->Size 判断是否有右儿子
             Child++;  /* Child指向左右子结点的较大者 */
         if( X >= H->Data[Child] ) break; /* 找到了合适位置 */
         else  /* 下滤X */
