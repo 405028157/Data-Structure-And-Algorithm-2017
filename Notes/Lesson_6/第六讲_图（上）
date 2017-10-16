@@ -21,7 +21,7 @@
 
 DFS深度优先搜索(Depth First Search)
   若有N个顶点、E条边，时间复杂度是
-   用邻接表存储图，有O(N+E)
+   用邻接表存储图，有O(N+E)          //为什么不是O(N+2E)?
    用邻接矩阵存储图，有O(N2)
   
 BFS广度优先搜索(Breadth First Search)
