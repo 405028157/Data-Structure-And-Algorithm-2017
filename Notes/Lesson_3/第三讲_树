@@ -21,6 +21,8 @@ Position Binary_Search( ElementType List[], ElementType X, Position Left, Positi
 
 
 //在二分查找的程序实现中，如果left和right的更新不是取mid+1和mid-1而是都取mid，程序也是正确的（X）
+可以看到，递归终止的条件是 left > right 或者 找到了元素下标 ，如果按照题干，一旦要找的元素不存在，由于left <= right会一直成立，
+递归永远进行下去直到程序崩溃。
 left取mid，当要查找的值存在在时，没有问题，但是如果查找的值不存在，就没法通过if(left <= Right)终止递归；
 Right取mid，当要查找的值紧挨Right左边时，mid不可能指到那个位置。
 
