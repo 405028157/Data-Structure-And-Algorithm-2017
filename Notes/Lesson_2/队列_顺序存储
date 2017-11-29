@@ -1,3 +1,5 @@
+/*Front处"没有"元素,每次DeleteQ，先Q->Front = (Q->Front + 1) % MaxSize; 然后return Q->Data[Q->Front];
+  Rear处有元素，每次AddQ，先Q->Rear = (Q->Rear + 1) % MaxSize; 然后 Q->Data[Q->Rear] = X;
 typedef int Position;
 struct QNode {
     ElementType *Data;     /* 存储元素的数组 */
@@ -5,12 +7,11 @@ struct QNode {
     int MaxSize;           /* 队列最大容量 */
 };
 typedef struct QNode *Queue;
- 
-Queue CreateQueue( int MaxSize )
+Queue CreateQueue( int MaxSize )     
 {
     Queue Q = (Queue)malloc(sizeof(struct QNode));
     Q->Data = (ElementType *)malloc(MaxSize * sizeof(ElementType));
-    Q->Front = Q->Rear = 0;
+    Q->Front = Q->Rear = 0;            
     Q->MaxSize = MaxSize;
     return Q;
 }
