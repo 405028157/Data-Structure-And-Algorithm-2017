@@ -77,3 +77,80 @@ AVLTree Insert( AVLTree T, ElementType X )
      
     return T;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+AVLTree Insert(AVLTree T, ElemType x)
+{
+  if(T == NULL){
+    T = (AVLTree)malloc(sizeof(AVLNode));
+    T->Data = x;
+    T->Left = T->Right = NULL;
+    return;
+  }
+  
+  if(x < T->Data){
+    T->Left = Insert(T->Left, x);
+    
+    if(GetHeight(T->Left) - GetHeight(T->Right) >= 2){
+      if(x < T->Left->Data)
+        T = SingLeftRotation(T);
+      else if(x > T->Left->Data)
+        T = DoubleLeftRightRotation(T);
+    }
+  }
+  
+  else if(x > T->Data){
+    T->Right = Insert(T->Right, x);
+    
+    if(GetHeight(T->Right) - GetHeight(T->Left) >= 2){
+      if(x > T->Right->Data)
+        T = SingleRightRotation(T);
+      else if(x < T->Right->Data)
+        T = DoubleRightLeftRotation(T);
+    }
+    
+    T->Height = max( GetHeight(T->Left), GetHeight(T->Right) ) + 1;
+    return T;
+  }
+  
+
+
+
+
+
+
